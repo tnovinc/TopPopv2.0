@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/navigation"
+    app:startDestination="@id/fragmentChart">
+
+    <fragment
+        android:id="@+id/fragmentChart"
+        android:name="com.example.android.toppop2.chart.FragmentChart"
+        android:label="FragmentChart" >
+        <action
+            android:id="@+id/action_fragmentChart_to_fragmentDetails"
+            app:destination="@id/fragmentDetails"
+            app:popUpTo="@id/fragmentChart"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentDetails"
+        android:name="com.example.android.toppop2.details.FragmentDetails"
+        android:label="FragmentDetails" >
+        <action
+            android:id="@+id/action_fragmentDetails_to_fragmentChart"
+            app:destination="@id/fragmentChart" />
+    </fragment>
+</navigation>
