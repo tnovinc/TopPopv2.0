@@ -1,7 +1,7 @@
 package com.example.android.toppop2.retrofit
 
-import com.example.android.toppop2.retrofit.models.AlbumDTO
-import com.example.android.toppop2.retrofit.models.Chart
+import com.example.android.toppop2.retrofit.dto.AlbumDTO
+import com.example.android.toppop2.retrofit.dto.ChartDTO
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -10,7 +10,7 @@ import retrofit2.http.Path
 interface RetrofitService{
 
     @GET("chart")
-    fun getChart(): Deferred<Chart>
+    fun getChart(): Deferred<ChartDTO>
 
     @GET("/album/{id}")
     fun getAlbum(@Path("id") albumId: Int): Deferred<AlbumDTO>

@@ -1,46 +1,46 @@
-package com.example.android.toppop2.retrofit.models
+package com.example.android.toppop2.retrofit.dto
 
+import com.example.android.toppop2.models.ChartTrack
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
-data class Chart(val tracks: ChartTracks)
+data class ChartDTO(val tracks: ChartTracksDTO)
 
 @JsonClass(generateAdapter = true)
-data class ChartTracks(val data: List<ChartTrack>)
+data class ChartTracksDTO(val data: List<ChartTrackDTO>)
 
 @JsonClass(generateAdapter = true)
-data class ChartTrack(
-        val id: Int,
-        val title: String,
-        val duration: Int,
-        val position: Int,
-        val artist: ChartArtist,
-        val album: ChartAlbum)
+data class ChartTrackDTO(
+    val id: Int,
+    val title: String,
+    val duration: Int,
+    val position: Int,
+    val artist: ChartArtistDTO,
+    val album: ChartAlbumDTO
+)
 
 @JsonClass(generateAdapter = true)
-data class ChartArtist(
+data class ChartArtistDTO(
         val id: Int,
         val name: String,
         val picture: String)
 
 @JsonClass(generateAdapter = true)
-data class ChartAlbum(
+data class ChartAlbumDTO(
         val id: Int,
         val title: String,
         val cover: String)
 
-fun Chart.asListOfTracks() : List<Track>{
+fun ChartDTO.asListOfTracks() : List<ChartTrack>{
     return tracks.data.map {
-        Track(
+        ChartTrack(
             id = it.id,
             title = it.title,
             duration = it.duration,
             position = it.position,
             artistName = it.artist.name,
             artistPicture = it.artist.picture,
-            albumId = it.album.id,
-            albumTitle = it.album.title,
-            albumCover = it.album.cover
+            albumId = it.album.id
         )
     }
 }
