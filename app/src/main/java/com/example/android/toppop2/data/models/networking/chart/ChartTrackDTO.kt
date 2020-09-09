@@ -1,7 +1,5 @@
 package com.example.android.toppop2.data.models.networking.chart
 
-import com.example.android.toppop2.data.models.networking.ChartAlbumDTO
-import com.example.android.toppop2.data.models.networking.ChartArtistDTO
 import com.squareup.moshi.JsonClass
 
 @JsonClass(generateAdapter = true)
