@@ -32,20 +32,20 @@ data class ChartAlbumDTO(
         val title: String,
         val cover: String)
 
-//DTO u model za prikazivanje
-fun ChartDTO.asListOfTracks() : List<ChartTrack>{
-    return tracks.data.map {
-        ChartTrack(
-            id = it.id,
-            title = it.title,
-            duration = it.duration,
-            position = it.position,
-            artistName = it.artist.name,
-            artistPicture = it.artist.picture,
-            albumId = it.album.id
-        )
-    }
-}
+////DTO u model za prikazivanje
+//fun ChartDTO.asListOfTracks() : List<ChartTrack>{
+//    return tracks.data.map {
+//        ChartTrack(
+//            id = it.id,
+//            title = it.title,
+//            duration = it.duration,
+//            position = it.position,
+//            artistName = it.artist.name,
+//            artistPicture = it.artist.picture,
+//            albumId = it.album.id
+//        )
+//    }
+//}
 
 //DTO u model za pohranu u bazu
 fun ChartDTO.asDatabaseEntities(): List<Tracks> {
