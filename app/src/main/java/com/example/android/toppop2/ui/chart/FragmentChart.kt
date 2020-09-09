@@ -36,8 +36,7 @@ class FragmentChart : Fragment(){
             it?.let {
                 binding.recyclerView.setHasFixedSize(true)
                 val layoutManager = LinearLayoutManager(context)
-                val adapter =
-                    ChartRecyclerViewAdapter()
+                val adapter = ChartRecyclerViewAdapter()
                 binding.recyclerView.layoutManager = layoutManager
                 adapter.data = it
                 binding.recyclerView.adapter = adapter
