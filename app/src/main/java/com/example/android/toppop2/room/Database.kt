@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.android.toppop2.room.dao.AlbumDao
 import com.example.android.toppop2.room.dao.ChartDao
 
-@Database(entities = [Tracks::class, Albums::class], version = 1)
+@Database(entities = [Tracks::class, Albums::class, AlbumTracks::class], version = 1)
 abstract class TopPopDatabase: RoomDatabase(){
     abstract val chartDao: ChartDao
     abstract val albumDao: AlbumDao

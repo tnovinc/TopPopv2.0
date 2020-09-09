@@ -1,5 +1,7 @@
 package com.example.android.toppop2.retrofit
 
+import com.example.android.toppop2.room.TopPopDatabase
+import com.example.android.toppop2.room.dao.ChartDao
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
