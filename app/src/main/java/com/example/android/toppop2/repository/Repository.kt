@@ -1,5 +1,6 @@
 package com.example.android.toppop2.repository
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.example.android.toppop2.models.Album
@@ -8,13 +9,15 @@ import com.example.android.toppop2.retrofit.RetrofitClient
 import com.example.android.toppop2.retrofit.dto.asDatabaseEntities
 import com.example.android.toppop2.retrofit.dto.asDatabaseEntity
 import com.example.android.toppop2.retrofit.dto.tracksAsDatabaseEntities
-import com.example.android.toppop2.room.TopPopDatabase
 import com.example.android.toppop2.room.asAlbumModel
 import com.example.android.toppop2.room.asChartTrackList
+import com.example.android.toppop2.room.getDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class Repository(private val database: TopPopDatabase){
+class Repository(application: Application){
+
+    private val database = getDatabase(application)
 
     suspend fun refresh(){
         withContext(Dispatchers.IO){
