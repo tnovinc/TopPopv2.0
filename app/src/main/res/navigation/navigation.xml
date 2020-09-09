@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/fragmentChart"
-        android:name="com.example.android.toppop2.chart.FragmentChart"
+        android:name="com.example.android.toppop2.ui.chart.FragmentChart"
         android:label="FragmentChart" >
         <action
             android:id="@+id/action_fragmentChart_to_fragmentDetails"
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentDetails"
-        android:name="com.example.android.toppop2.details.FragmentDetails"
+        android:name="com.example.android.toppop2.ui.details.FragmentDetails"
         android:label="FragmentDetails" >
         <action
             android:id="@+id/action_fragmentDetails_to_fragmentChart"
