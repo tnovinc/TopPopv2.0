@@ -8,8 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.toppop2.R
 import com.example.android.toppop2.databinding.FragmentChartLayoutBinding
+import com.example.android.toppop2.ui.adapters.chart.ChartRecyclerViewAdapter
 
 class FragmentChart : Fragment(){
 
@@ -32,7 +34,13 @@ class FragmentChart : Fragment(){
 
         viewModel.chart.observe(viewLifecycleOwner, Observer {
             it?.let {
-                binding.testText.text = it[0].title
+                binding.recyclerView.setHasFixedSize(true)
+                val layoutManager = LinearLayoutManager(context)
+                val adapter =
+                    ChartRecyclerViewAdapter()
+                binding.recyclerView.layoutManager = layoutManager
+                adapter.data = it
+                binding.recyclerView.adapter = adapter
             }
         })
 

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="4dp"
+    android:layout_marginBottom="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="4dp"
+        >
+
+        <TextView
+            android:id="@+id/trackPositionTextView"
+            android:layout_width="40dp"
+            android:layout_height="70dp"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="@android:color/black"
+            android:layout_alignParentTop="true"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            />
+
+        <ImageView
+            android:id="@+id/artistImageView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="4dp"
+            android:layout_toEndOf="@+id/trackPositionTextView"
+            android:layout_marginLeft="5dp"/>
+
+        <TextView
+            android:id="@+id/trackTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Song"
+            android:textColor="@android:color/black"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/artistImageView"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="1dp"
+            />
+
+        <TextView
+            android:id="@+id/artistNameTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_below="@id/trackTitleTextView"
+            android:layout_toEndOf="@+id/artistImageView"
+            android:text="Artist"
+            android:layout_marginLeft="5dp"
+            />
+
+        <TextView
+            android:id="@+id/trackDurationTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:layout_below="@id/artistNameTextView"
+            android:layout_toEndOf="@+id/artistImageView"
+            android:text="00:00"
+            android:layout_marginLeft="5dp"
+            />
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
