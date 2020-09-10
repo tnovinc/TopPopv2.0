@@ -23,7 +23,7 @@ class FragmentChart : Fragment(){
     private val viewModel: ViewModelChart by lazy {
         val database = getDatabase(requireContext().applicationContext)
         val repository = Repository(database)
-        ViewModelProvider(this, ViewModelChart.Factory(requireActivity().application, repository)).get(ViewModelChart::class.java)
+        ViewModelProvider(this, ViewModelChartFactory(requireActivity().application, repository)).get(ViewModelChart::class.java)
     }
 
     override fun onCreateView(

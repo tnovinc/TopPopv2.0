@@ -10,7 +10,7 @@ import com.example.android.toppop2.data.models.database.Tracks
 @Dao
 interface ChartDao{
 
-    @Query("select * from tracks")
+    @Query("select * from tracks order by position")
     fun getChartTracks(): LiveData<List<Tracks>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

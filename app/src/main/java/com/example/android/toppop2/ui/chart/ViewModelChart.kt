@@ -38,14 +38,4 @@ class ViewModelChart(application: Application, val repository: Repository): Andr
         super.onCleared()
         viewModelJob.cancel()
     }
-
-    class Factory(val app: Application, val repository: Repository) : ViewModelProvider.Factory {
-        override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            if (modelClass.isAssignableFrom(ViewModelChart::class.java)) {
-                @Suppress("UNCHECKED_CAST")
-                return ViewModelChart(app, repository) as T
-            }
-            throw IllegalArgumentException("Unable to construct viewmodel")
-        }
-    }
 }
