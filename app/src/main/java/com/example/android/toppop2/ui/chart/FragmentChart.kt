@@ -9,6 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.toppop2.R
+import com.example.android.toppop2.common.Const
 import com.example.android.toppop2.data.repository.Repository
 import com.example.android.toppop2.data.room.TopPopDatabase
 import com.example.android.toppop2.data.room.getDatabase
@@ -61,17 +62,17 @@ class FragmentChart : Fragment(){
         viewModel.sortType.observe(viewLifecycleOwner, Observer {
             it?.let{
                 when(it){
-                    SortType.RANKING -> {
+                    Const.SortType.RANKING -> {
                         adapter.data = adapter.data.sortedBy {
                             it.position
                         }
                     }
-                    SortType.DURATION_ASC -> {
+                    Const.SortType.DURATION_ASC -> {
                         adapter.data = adapter.data.sortedBy {
                             it.duration
                         }
                     }
-                    SortType.DURATION_DESC -> {
+                    Const.SortType.DURATION_DESC -> {
                         adapter.data = adapter.data.sortedByDescending {
                             it.duration
                         }

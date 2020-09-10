@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.android.toppop2.common.Const
 import com.example.android.toppop2.data.models.database.AlbumTracks
 import com.example.android.toppop2.data.models.database.Albums
 import com.example.android.toppop2.data.models.database.Tracks
@@ -24,7 +25,7 @@ fun getDatabase(context: Context): TopPopDatabase{
             INSTANCE = Room.databaseBuilder(
                 context.applicationContext,
                 TopPopDatabase::class.java,
-                "toppop").build()
+                Const.Database.DB_NAME).build()
         }
     }
     return INSTANCE
