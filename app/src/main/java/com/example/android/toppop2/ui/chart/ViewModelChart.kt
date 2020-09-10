@@ -1,9 +1,7 @@
 package com.example.android.toppop2.ui.chart
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.*
 import com.example.android.toppop2.data.repository.Repository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -17,13 +15,26 @@ class ViewModelChart(application: Application): AndroidViewModel(application){
 
     private val repository = Repository(application)
 
+    private val _itemClicked = MutableLiveData<Int>()
+    val itemClicked: LiveData<Int>
+        get() = _itemClicked
+
     init {
         viewModelScope.launch {
             repository.refresh()
         }
+        _itemClicked.value = -1
     }
 
     val chart = repository.getChart()
+
+    fun onItemClicked(albumId: Int){
+        _itemClicked.value = albumId
+    }
+
+    fun onItemClickNavigateComplete(){
+        _itemClicked.value = -1
+    }
 
     override fun onCleared() {
         super.onCleared()

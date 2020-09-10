@@ -1,7 +1,9 @@
 package com.example.android.toppop2.ui.adapters.chart
 
 import android.net.Uri
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
@@ -10,7 +12,7 @@ import com.example.android.toppop2.data.models.ui.ChartTrack
 import kotlinx.android.synthetic.main.chart_recycler_item.view.*
 import java.util.*
 
-class ChartRecyclerViewAdapter: RecyclerView.Adapter<ChartViewHolder>(){
+class ChartRecyclerViewAdapter(val onClickListener: ItemClickListener): RecyclerView.Adapter<ChartViewHolder>(){
 
     var data = listOf<ChartTrack>()
         set(value){
@@ -35,5 +37,8 @@ class ChartRecyclerViewAdapter: RecyclerView.Adapter<ChartViewHolder>(){
         holder.cardView.trackTitleTextView.text = data[position].title
         holder.cardView.artistNameTextView.text = data[position].artistName
         holder.cardView.trackDurationTextView.text = String.format(Locale.ENGLISH,"%02d:%02d", (data[position].duration/60), (data[position].duration%60))
+        holder.cardView.cardView.setOnClickListener{
+            onClickListener.onClick(data[position])
+        }
     }
 }

@@ -8,10 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.toppop2.R
 import com.example.android.toppop2.databinding.FragmentChartLayoutBinding
 import com.example.android.toppop2.ui.adapters.chart.ChartRecyclerViewAdapter
+import com.example.android.toppop2.ui.adapters.chart.ItemClickListener
 
 class FragmentChart : Fragment(){
 
@@ -36,10 +38,19 @@ class FragmentChart : Fragment(){
             it?.let {
                 binding.recyclerView.setHasFixedSize(true)
                 val layoutManager = LinearLayoutManager(context)
-                val adapter = ChartRecyclerViewAdapter()
+                val adapter = ChartRecyclerViewAdapter(ItemClickListener {
+                    viewModel.onItemClicked(it)
+                })
                 binding.recyclerView.layoutManager = layoutManager
                 adapter.data = it
                 binding.recyclerView.adapter = adapter
+            }
+        })
+
+        viewModel.itemClicked.observe(viewLifecycleOwner, Observer {
+            if(it > -1) {
+                findNavController().navigate(FragmentChartDirections.actionFragmentChartToFragmentDetails(it))
+                viewModel.onItemClickNavigateComplete()
             }
         })
 

@@ -18,6 +18,9 @@
         android:id="@+id/fragmentDetails"
         android:name="com.example.android.toppop2.ui.details.FragmentDetails"
         android:label="FragmentDetails" >
+        <argument
+            android:name="albumId"
+            app:argType="Integer"/>
         <action
             android:id="@+id/action_fragmentDetails_to_fragmentChart"
             app:destination="@id/fragmentChart" />
