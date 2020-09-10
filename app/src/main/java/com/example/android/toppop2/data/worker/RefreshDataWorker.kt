@@ -7,11 +7,9 @@ import androidx.work.WorkerParameters
 import com.example.android.toppop2.data.repository.Repository
 import retrofit2.HttpException
 
-class RefreshDataWorker(private val application: Application, appContext: Context, params: WorkerParameters): CoroutineWorker(appContext, params){
+class RefreshDataWorker(val repository: Repository, private val application: Application, appContext: Context, params: WorkerParameters): CoroutineWorker(appContext, params){
 
     override suspend fun doWork(): Result {
-        val repository = Repository(application)
-
         return try {
             repository.refresh()
             Result.success()

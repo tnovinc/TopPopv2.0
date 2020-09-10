@@ -9,13 +9,12 @@ import com.example.android.toppop2.data.models.ui.Album
 import com.example.android.toppop2.data.models.ui.AlbumTrack
 import com.example.android.toppop2.data.models.ui.ChartTrack
 import com.example.android.toppop2.data.retrofit.RetrofitClient
+import com.example.android.toppop2.data.room.TopPopDatabase
 import com.example.android.toppop2.data.room.getDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class Repository(application: Application){
-
-    private val database = getDatabase(application)
+class Repository(val database: TopPopDatabase){
 
     suspend fun refresh(){
         withContext(Dispatchers.IO){

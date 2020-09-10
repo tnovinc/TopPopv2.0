@@ -11,6 +11,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.android.toppop2.R
+import com.example.android.toppop2.data.repository.Repository
+import com.example.android.toppop2.data.room.TopPopDatabase
+import com.example.android.toppop2.data.room.getDatabase
 import com.example.android.toppop2.databinding.FragmentChartLayoutBinding
 import com.example.android.toppop2.ui.adapters.chart.ChartRecyclerViewAdapter
 import com.example.android.toppop2.ui.adapters.chart.ItemClickListener
@@ -18,7 +21,9 @@ import com.example.android.toppop2.ui.adapters.chart.ItemClickListener
 class FragmentChart : Fragment(){
 
     private val viewModel: ViewModelChart by lazy {
-        ViewModelProvider(this, ViewModelChart.Factory(requireActivity().application)).get(ViewModelChart::class.java)
+        val database = getDatabase(requireContext().applicationContext)
+        val repository = Repository(database)
+        ViewModelProvider(this, ViewModelChart.Factory(requireActivity().application, repository)).get(ViewModelChart::class.java)
     }
 
     override fun onCreateView(
@@ -34,21 +39,22 @@ class FragmentChart : Fragment(){
             false
         )
 
+        binding.recyclerView.setHasFixedSize(true)
+        val layoutManager = LinearLayoutManager(context)
+        val adapter = ChartRecyclerViewAdapter(ItemClickListener {
+            viewModel.onItemClicked(it)
+        })
+        binding.recyclerView.layoutManager = layoutManager
+        binding.recyclerView.adapter = adapter
+
         viewModel.chart.observe(viewLifecycleOwner, Observer {
             it?.let {
-                binding.recyclerView.setHasFixedSize(true)
-                val layoutManager = LinearLayoutManager(context)
-                val adapter = ChartRecyclerViewAdapter(ItemClickListener {
-                    viewModel.onItemClicked(it)
-                })
-                binding.recyclerView.layoutManager = layoutManager
                 adapter.data = it
-                binding.recyclerView.adapter = adapter
             }
         })
 
         viewModel.itemClicked.observe(viewLifecycleOwner, Observer {
-            if(it > -1) {
+            it?.let {
                 findNavController().navigate(FragmentChartDirections.actionFragmentChartToFragmentDetails(it))
                 viewModel.onItemClickNavigateComplete()
             }

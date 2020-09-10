@@ -10,9 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.android.toppop2.R
+import com.example.android.toppop2.data.repository.Repository
+import com.example.android.toppop2.data.room.getDatabase
 import com.example.android.toppop2.databinding.FragmentDetailsLayoutBinding
+import com.example.android.toppop2.ui.chart.ViewModelChart
 
 class FragmentDetails : Fragment(){
+
+    private val viewModel: ViewModelDetails by lazy {
+        val database = getDatabase(requireContext().applicationContext)
+        val repository = Repository(database)
+        val albumId = FragmentDetailsArgs.fromBundle(arguments!!).albumId
+        ViewModelProvider(this, ViewModelDetailsFactory(albumId, repository, requireActivity().application)).get(
+            ViewModelDetails::class.java)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,10 +36,6 @@ class FragmentDetails : Fragment(){
             container,
             false
         )
-
-        val albumId = FragmentDetailsArgs.fromBundle(arguments!!).albumId
-
-        val viewModel = ViewModelProvider(this, ViewModelDetailsFactory(albumId, requireActivity().application)).get(ViewModelDetails::class.java)
 
         viewModel.album.observe(viewLifecycleOwner, Observer {
             it?.let {

@@ -9,12 +9,10 @@ import com.example.android.toppop2.data.models.ui.Album
 import com.example.android.toppop2.data.repository.Repository
 import kotlinx.coroutines.*
 
-class ViewModelDetails(val albumId: Int, application: Application): AndroidViewModel(application){
+class ViewModelDetails(val albumId: Int, val repository: Repository, application: Application): AndroidViewModel(application){
 
     val viewModelJob = SupervisorJob()
     val viewModelScope = CoroutineScope(Dispatchers.Main + viewModelJob)
-
-    private val repository = Repository(application)
 
     private var _album = MutableLiveData<Album>()
     val album: LiveData<Album>
