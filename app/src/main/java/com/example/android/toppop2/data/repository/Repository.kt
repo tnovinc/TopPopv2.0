@@ -4,7 +4,9 @@ import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
 import com.example.android.toppop2.data.models.*
+import com.example.android.toppop2.data.models.database.AlbumTracks
 import com.example.android.toppop2.data.models.ui.Album
+import com.example.android.toppop2.data.models.ui.AlbumTrack
 import com.example.android.toppop2.data.models.ui.ChartTrack
 import com.example.android.toppop2.data.retrofit.RetrofitClient
 import com.example.android.toppop2.data.room.getDatabase
@@ -33,8 +35,10 @@ class Repository(application: Application){
         }
     }
 
-    fun getAlbum(albumId: Int): Album {
-        val albumTracks = database.albumDao.getAlbumTracks(albumId)
-        return database.albumDao.getAlbum(albumId).asAlbumModel(albumTracks)
+    suspend fun getAlbum(albumId: Int): Album {
+        return withContext(Dispatchers.IO){
+            return@withContext database.albumDao.getAlbum(albumId).asAlbumModel(database.albumDao.getAlbumTracks(albumId))
+        }
+
     }
 }
