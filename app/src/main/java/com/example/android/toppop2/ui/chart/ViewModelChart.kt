@@ -17,11 +17,16 @@ class ViewModelChart(application: Application, val repository: Repository): Andr
     val itemClicked: LiveData<Int?>
         get() = _itemClicked
 
+    private val _sortType = MutableLiveData<SortType>()
+    val sortType: LiveData<SortType>
+        get() = _sortType
+
     init {
         viewModelScope.launch {
             repository.refresh()
         }
         _itemClicked.value = null
+        _sortType.value = SortType.RANKING
     }
 
     val chart = repository.getChart()
@@ -32,6 +37,18 @@ class ViewModelChart(application: Application, val repository: Repository): Andr
 
     fun onItemClickNavigateComplete(){
         _itemClicked.value = null
+    }
+
+    fun sortByRanking(){
+        _sortType.value = SortType.RANKING
+    }
+
+    fun sortByDurationAscending(){
+        _sortType.value = SortType.DURATION_ASC
+    }
+
+    fun sortByDurationDescending(){
+        _sortType.value = SortType.DURATION_DESC
     }
 
     override fun onCleared() {

@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">TopPop2</string>
+    <string name="sortRanking">Ranking</string>
+    <string name="sortDurAsc">Duration asc.</string>
+    <string name="sortDurDesc">Duration desc.</string>
 </resources>
