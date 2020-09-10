@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.android.toppop2.R
 import com.example.android.toppop2.data.models.ui.ChartTrack
 import kotlinx.android.synthetic.main.chart_recycler_item.view.*
@@ -33,7 +34,9 @@ class ChartRecyclerViewAdapter(val onClickListener: ItemClickListener): Recycler
 
     override fun onBindViewHolder(holder: ChartViewHolder, position: Int) {
         holder.cardView.trackPositionTextView.text = data[position].position.toString()
-        holder.cardView.artistImageView.setImageURI(Uri.parse(data[position].artistPicture))
+        Glide.with(holder.cardView)
+            .load(data[position].artistPicture)
+            .into(holder.cardView.artistImageView)
         holder.cardView.trackTitleTextView.text = data[position].title
         holder.cardView.artistNameTextView.text = data[position].artistName
         holder.cardView.trackDurationTextView.text = String.format(Locale.ENGLISH,"%02d:%02d", (data[position].duration/60), (data[position].duration%60))

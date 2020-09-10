@@ -20,7 +20,7 @@
         android:label="FragmentDetails" >
         <argument
             android:name="albumId"
-            app:argType="Integer"/>
+            app:argType="integer"/>
         <action
             android:id="@+id/action_fragmentDetails_to_fragmentChart"
             app:destination="@id/fragmentChart" />
