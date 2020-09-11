@@ -18,6 +18,7 @@ class Repository(val database: TopPopDatabase){
 
     suspend fun refresh(){
         withContext(Dispatchers.IO){
+            database.chartDao.deleteAll()
             val chartTracks = RetrofitClient.client.getChart().await()
             database.chartDao.insertChartTracks(chartTracks.asDatabaseEntities())
             chartTracks.tracks.data.forEach {
