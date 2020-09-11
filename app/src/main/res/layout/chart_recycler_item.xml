@@ -3,35 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="4dp"
-    android:layout_marginBottom="4dp"
+    app:cardCornerRadius="@dimen/cardViewCornerRadius"
+    android:layout_marginBottom="@dimen/marginDefault"
     android:id="@+id/cardView">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="4dp"
+        android:layout_margin="@dimen/marginDefault"
         >
 
         <TextView
             android:id="@+id/trackPositionTextView"
-            android:layout_width="40dp"
-            android:layout_height="70dp"
+            android:layout_width="@dimen/chartTrackPositionTextViewWidth"
+            android:layout_height="@dimen/chartTrackPositionTextViewHeight"
             android:gravity="center"
             android:text="1"
             android:textColor="@android:color/black"
             android:layout_alignParentTop="true"
-            android:textSize="30sp"
+            android:textSize="@dimen/textSizeHuge"
             android:textStyle="bold"
             />
 
         <ImageView
             android:id="@+id/artistImageView"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:padding="4dp"
+            android:layout_width="@dimen/artistImageSize"
+            android:layout_height="@dimen/artistImageSize"
+            android:padding="@dimen/paddingDefault"
             android:layout_toEndOf="@+id/trackPositionTextView"
-            android:layout_marginLeft="5dp"/>
+            android:layout_marginLeft="@dimen/marginLeft"/>
 
         <TextView
             android:id="@+id/trackTitleTextView"
@@ -41,32 +41,32 @@
             android:textColor="@android:color/black"
             android:layout_alignParentTop="true"
             android:layout_toEndOf="@+id/artistImageView"
-            android:textSize="20sp"
+            android:textSize="@dimen/textSizeLarge"
             android:textStyle="bold"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="1dp"
+            android:layout_marginLeft="@dimen/marginLeft"
+            android:layout_marginTop="@dimen/marginTop"
             />
 
         <TextView
             android:id="@+id/artistNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="@dimen/textSizeMedium"
             android:layout_below="@id/trackTitleTextView"
             android:layout_toEndOf="@+id/artistImageView"
             android:text="Artist"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="@dimen/marginLeft"
             />
 
         <TextView
             android:id="@+id/trackDurationTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="15sp"
+            android:textSize="@dimen/textSizeSmall"
             android:layout_below="@id/artistNameTextView"
             android:layout_toEndOf="@+id/artistImageView"
             android:text="00:00"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="@dimen/marginLeft"
             />
 
     </RelativeLayout>

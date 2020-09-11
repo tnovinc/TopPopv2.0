@@ -2,9 +2,17 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryDark">@color/primaryDarkColor</item>
+        <item name="colorAccent">@color/primaryLightColor</item>
+        <item name="android:textColor">@color/primaryTextColor</item>
     </style>
 
+    <style name="TextAppearance.Song.Title" parent="TextAppearance.AppCompat.Title">
+
+    </style>
+
+    <style name="TextAppearance.Artist.Name" parent="TextAppearance.MaterialComponents.Subtitle1">
+
+    </style>
 </resources>
