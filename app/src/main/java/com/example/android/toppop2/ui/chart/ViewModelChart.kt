@@ -13,8 +13,8 @@ class ViewModelChart(application: Application, val repository: Repository): Base
     val itemClicked: LiveData<Int?>
         get() = _itemClicked
 
-    private val _sortType = MutableLiveData<Const.SortType>()
-    val sortType: LiveData<Const.SortType>
+    private val _sortType = MutableLiveData<SortType>()
+    val sortType: LiveData<SortType>
         get() = _sortType
 
     init {
@@ -22,7 +22,7 @@ class ViewModelChart(application: Application, val repository: Repository): Base
             repository.refresh()
         }
         _itemClicked.value = null
-        _sortType.value = Const.SortType.RANKING
+        _sortType.value = SortType.RANKING
     }
 
     val chart = repository.getChart()
@@ -36,14 +36,14 @@ class ViewModelChart(application: Application, val repository: Repository): Base
     }
 
     fun sortByRanking(){
-        _sortType.value = Const.SortType.RANKING
+        _sortType.value = SortType.RANKING
     }
 
     fun sortByDurationAscending(){
-        _sortType.value = Const.SortType.DURATION_ASC
+        _sortType.value = SortType.DURATION_ASC
     }
 
     fun sortByDurationDescending(){
-        _sortType.value = Const.SortType.DURATION_DESC
+        _sortType.value = SortType.DURATION_DESC
     }
 }

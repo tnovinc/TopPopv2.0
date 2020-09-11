@@ -13,9 +13,4 @@ class Const {
             const val DB_NAME = "toppop"
         }
     }
-    enum class SortType{
-        RANKING,
-        DURATION_ASC,
-        DURATION_DESC
-    }
 }

@@ -62,17 +62,17 @@ class FragmentChart : Fragment(){
         viewModel.sortType.observe(viewLifecycleOwner, Observer {
             it?.let{
                 when(it){
-                    Const.SortType.RANKING -> {
+                    SortType.RANKING -> {
                         adapter.data = adapter.data.sortedBy {
                             it.position
                         }
                     }
-                    Const.SortType.DURATION_ASC -> {
+                    SortType.DURATION_ASC -> {
                         adapter.data = adapter.data.sortedBy {
                             it.duration
                         }
                     }
-                    Const.SortType.DURATION_DESC -> {
+                    SortType.DURATION_DESC -> {
                         adapter.data = adapter.data.sortedByDescending {
                             it.duration
                         }
