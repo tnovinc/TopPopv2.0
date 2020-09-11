@@ -8,11 +8,15 @@
         <item name="android:textColor">@color/primaryTextColor</item>
     </style>
 
-    <style name="TextAppearance.Song.Title" parent="TextAppearance.AppCompat.Title">
-
+    <style name="TextAppearance.Track.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="fontFamily">@font/shojumaru</item>
     </style>
 
     <style name="TextAppearance.Artist.Name" parent="TextAppearance.MaterialComponents.Subtitle1">
+        <item name="fontFamily">@font/fugaz_one</item>
+    </style>
 
+    <style name="TextAppearance.Album.Title" parent="TextAppearance.AppCompat.Title">
+        <item name="fontFamily">@font/holtwood_one_sc</item>
     </style>
 </resources>

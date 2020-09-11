@@ -30,7 +30,8 @@
             android:textStyle="bold"
             android:textColor="@android:color/black"
             android:gravity="center"
-            android:layout_marginStart="@dimen/marginLeft"/>
+            android:layout_marginStart="@dimen/marginLeft"
+            style="@style/TextAppearance.Track.Title"/>
         <TextView
             android:id="@+id/durationTextView"
             android:layout_width="wrap_content"

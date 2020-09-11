@@ -45,6 +45,7 @@
             android:textStyle="bold"
             android:layout_marginLeft="@dimen/marginLeft"
             android:layout_marginTop="@dimen/marginTop"
+            style="@style/TextAppearance.Track.Title"
             />
 
         <TextView
@@ -56,6 +57,7 @@
             android:layout_toEndOf="@+id/artistImageView"
             android:text="Artist"
             android:layout_marginLeft="@dimen/marginLeft"
+            style="@style/TextAppearance.Artist.Name"
             />
 
         <TextView
