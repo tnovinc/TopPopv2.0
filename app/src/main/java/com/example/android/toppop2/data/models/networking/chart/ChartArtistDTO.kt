@@ -1,11 +1,12 @@
 package com.example.android.toppop2.data.models.networking.chart
 
+import com.google.gson.annotations.SerializedName
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
+//@JsonClass(generateAdapter = true)
 data class ChartArtistDTO(
     val id: Int,
     val name: String,
-    @Json(name = "picture_big")
+    @SerializedName("picture_big")
     val picture: String)

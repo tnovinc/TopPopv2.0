@@ -26,6 +26,11 @@ android {
         dataBinding true
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
 }
 
 dependencies {
@@ -85,4 +90,7 @@ dependencies {
 
     // Material design components
     implementation "com.google.android.material:material:$version_material"
+
+    //Gson
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 }
