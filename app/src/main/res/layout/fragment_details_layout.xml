@@ -12,25 +12,25 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8sp">
+            android:layout_marginTop="@dimen/marginTop">
 
             <ImageView
                 android:id="@+id/albumCoverImageView"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/albumCoverDimensions"
+                android:layout_height="@dimen/albumCoverDimensions"
                 android:layout_alignParentTop="true"
-                android:layout_margin="4dp"/>
+                android:layout_margin="@dimen/marginDefault"/>
 
             <TextView
                 android:id="@+id/albumTitleTextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="25sp"
+                android:textSize="@dimen/textSizeHuge"
                 android:textColor="@android:color/black"
                 android:textStyle="bold"
                 android:layout_toEndOf="@+id/albumCoverImageView"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="@dimen/marginLeft"
                 style="@style/TextAppearance.Album.Title"
                 />
 
@@ -39,9 +39,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="TextView"
-                android:textSize="20sp"
+                android:textSize="@dimen/textSizeLarge"
                 android:layout_toEndOf="@+id/albumCoverImageView"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="@dimen/marginLeft"
                 android:layout_below="@+id/albumTitleTextView"
                 style="@style/TextAppearance.Artist.Name"
                 />
@@ -51,10 +51,10 @@
             android:id="@+id/albumTracksRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
+            android:layout_marginTop="@dimen/marginDefault"
             android:scrollbars="vertical"
             android:background="@android:color/darker_gray"
-            android:paddingTop="2dp"/>
+            android:paddingTop="@dimen/marginTop"/>
 
     </LinearLayout>
 
