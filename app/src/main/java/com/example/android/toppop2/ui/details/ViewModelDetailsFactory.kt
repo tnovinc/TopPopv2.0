@@ -13,7 +13,7 @@ class ViewModelDetailsFactory(
     @Suppress("unchecked_cast")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(ViewModelDetails::class.java)) {
-            return ViewModelDetails(albumId, repository, application) as T
+            return ViewModelDetails(application, repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

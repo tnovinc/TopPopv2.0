@@ -13,9 +13,8 @@ class ViewModelDetails
     @ViewModelInject
     constructor(
         application: Application,
-        val repository: Repository,
-        val albumId: Int,
-        @Assisted private val savedStateHandle: SavedStateHandle
+        val repository: Repository
+        //val albumId: Int
     ): BaseViewModel(application){
 
     private var _album = MutableLiveData<Album>()
@@ -24,7 +23,7 @@ class ViewModelDetails
 
     init{
         viewModelScope.launch {
-            _album.value = repository.getAlbum(albumId)
+            _album.value = repository.getAlbum(0)
         }
     }
 
