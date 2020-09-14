@@ -17,7 +17,9 @@ import com.example.android.toppop2.data.room.getDatabase
 import com.example.android.toppop2.databinding.FragmentDetailsLayoutBinding
 import com.example.android.toppop2.ui.adapters.details.DetailsRecyclerViewAdapter
 import com.example.android.toppop2.ui.chart.ViewModelChart
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class FragmentDetails : Fragment(){
 
     private val viewModel: ViewModelDetails by viewModels()

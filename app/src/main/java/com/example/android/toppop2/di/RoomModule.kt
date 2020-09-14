@@ -1,6 +1,8 @@
 package com.example.android.toppop2.di
 
 import android.content.Context
+import androidx.room.Room
+import com.example.android.toppop2.common.Const
 import com.example.android.toppop2.data.room.TopPopDatabase
 import com.example.android.toppop2.data.room.getDatabase
 import dagger.Module
@@ -17,6 +19,10 @@ object RoomModule {
     @Singleton
     @Provides
     fun provideRoomDB(@ApplicationContext context: Context): TopPopDatabase{
-        return getDatabase(context)
+        return Room.databaseBuilder(
+            context,
+            TopPopDatabase::class.java,
+            Const.Database.DB_NAME
+        ).build()
     }
 }

@@ -1,16 +1,22 @@
 package com.example.android.toppop2.ui.details
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
+import androidx.hilt.Assisted
+import androidx.hilt.lifecycle.ViewModelInject
+import androidx.lifecycle.*
 import com.example.android.toppop2.common.BaseViewModel
 import com.example.android.toppop2.data.models.ui.Album
 import com.example.android.toppop2.data.repository.Repository
 import kotlinx.coroutines.*
 
-class ViewModelDetails(val albumId: Int, val repository: Repository, application: Application): BaseViewModel(application){
+class ViewModelDetails
+    @ViewModelInject
+    constructor(
+        application: Application,
+        val repository: Repository,
+        val albumId: Int,
+        @Assisted private val savedStateHandle: SavedStateHandle
+    ): BaseViewModel(application){
 
     private var _album = MutableLiveData<Album>()
     val album: LiveData<Album>

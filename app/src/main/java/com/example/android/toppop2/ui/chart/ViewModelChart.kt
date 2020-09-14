@@ -1,6 +1,7 @@
 package com.example.android.toppop2.ui.chart
 
 import android.app.Application
+import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.android.toppop2.common.BaseViewModel
