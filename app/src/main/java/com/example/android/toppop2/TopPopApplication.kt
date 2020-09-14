@@ -4,11 +4,13 @@ import android.app.Application
 import android.os.Build
 import androidx.work.*
 import com.example.android.toppop2.data.worker.RefreshDataWorker
+import dagger.hilt.android.HiltAndroidApp
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.concurrent.TimeUnit
 
+@HiltAndroidApp
 class TopPopApplication: Application() {
 
     private val applicationScope = CoroutineScope(Dispatchers.Default)

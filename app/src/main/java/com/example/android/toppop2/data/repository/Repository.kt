@@ -9,20 +9,24 @@ import com.example.android.toppop2.data.models.ui.Album
 import com.example.android.toppop2.data.models.ui.AlbumTrack
 import com.example.android.toppop2.data.models.ui.ChartTrack
 import com.example.android.toppop2.data.retrofit.RetrofitClient
+import com.example.android.toppop2.data.retrofit.RetrofitService
 import com.example.android.toppop2.data.room.TopPopDatabase
 import com.example.android.toppop2.data.room.getDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
 
-class Repository(val database: TopPopDatabase){
+class Repository
+    @Inject
+    constructor(val retrofit: RetrofitService, val database: TopPopDatabase){
 
     suspend fun refresh(){
         withContext(Dispatchers.IO){
             database.chartDao.deleteAll()
-            val chartTracks = RetrofitClient.client.getChart().await()
+            val chartTracks = retrofit.getChart().await()
             database.chartDao.insertChartTracks(chartTracks.asDatabaseEntities())
             chartTracks.tracks.data.forEach {
-                val album = RetrofitClient.client.getAlbum(it.album.id).await()
+                val album = retrofit.getAlbum(it.album.id).await()
                 database.albumDao.insertAlbum(album.asDatabaseEntity())
                 database.albumDao.insertAlbumTracks(album.tracksAsDatabaseEntities())
             }

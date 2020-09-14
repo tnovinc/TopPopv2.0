@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -16,14 +17,13 @@ import com.example.android.toppop2.data.room.getDatabase
 import com.example.android.toppop2.databinding.FragmentChartLayoutBinding
 import com.example.android.toppop2.ui.adapters.chart.ChartRecyclerViewAdapter
 import com.example.android.toppop2.ui.adapters.chart.ItemClickListener
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
-class FragmentChart : Fragment(){
+@AndroidEntryPoint
+class FragmentChart: Fragment(){
 
-    private val viewModel: ViewModelChart by lazy {
-        val database = getDatabase(requireContext().applicationContext)
-        val repository = Repository(database)
-        ViewModelProvider(this, ViewModelChartFactory(requireActivity().application, repository)).get(ViewModelChart::class.java)
-    }
+    private val viewModel: ViewModelChart by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

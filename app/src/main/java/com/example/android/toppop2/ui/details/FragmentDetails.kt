@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,13 +20,7 @@ import com.example.android.toppop2.ui.chart.ViewModelChart
 
 class FragmentDetails : Fragment(){
 
-    private val viewModel: ViewModelDetails by lazy {
-        val database = getDatabase(requireContext().applicationContext)
-        val repository = Repository(database)
-        val albumId = FragmentDetailsArgs.fromBundle(arguments!!).albumId
-        ViewModelProvider(this, ViewModelDetailsFactory(albumId, repository, requireActivity().application)).get(
-            ViewModelDetails::class.java)
-    }
+    private val viewModel: ViewModelDetails by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,

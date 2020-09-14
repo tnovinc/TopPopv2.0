@@ -1,13 +1,19 @@
 package com.example.android.toppop2.ui.chart
 
 import android.app.Application
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
 import com.example.android.toppop2.common.BaseViewModel
 import com.example.android.toppop2.common.Const
 import com.example.android.toppop2.data.repository.Repository
 import kotlinx.coroutines.launch
 
-class ViewModelChart(application: Application, val repository: Repository): BaseViewModel(application){
+class ViewModelChart
+    @ViewModelInject
+    constructor(
+        application: Application,
+        val repository: Repository
+    ): BaseViewModel(application){
 
     private val _itemClicked = MutableLiveData<Int?>()
     val itemClicked: LiveData<Int?>
