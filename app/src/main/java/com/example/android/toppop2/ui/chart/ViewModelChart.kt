@@ -3,9 +3,10 @@ package com.example.android.toppop2.ui.chart
 import android.app.Application
 import androidx.hilt.Assisted
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import com.example.android.toppop2.common.BaseViewModel
-import com.example.android.toppop2.common.Const
 import com.example.android.toppop2.data.repository.Repository
 import kotlinx.coroutines.launch
 
@@ -13,7 +14,8 @@ class ViewModelChart
     @ViewModelInject
     constructor(
         application: Application,
-        val repository: Repository
+        val repository: Repository,
+        @Assisted private val savedStateHandle: SavedStateHandle
     ): BaseViewModel(application){
 
     private val _itemClicked = MutableLiveData<Int?>()

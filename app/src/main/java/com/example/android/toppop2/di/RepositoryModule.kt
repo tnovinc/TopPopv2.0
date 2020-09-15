@@ -6,9 +6,7 @@ import com.example.android.toppop2.data.room.TopPopDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.AndroidEntryPoint
 import dagger.hilt.android.components.ApplicationComponent
-import javax.inject.Inject
 import javax.inject.Singleton
 
 @Module

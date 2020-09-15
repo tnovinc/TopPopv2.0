@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Room
 import com.example.android.toppop2.common.Const
 import com.example.android.toppop2.data.room.TopPopDatabase
-import com.example.android.toppop2.data.room.getDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
