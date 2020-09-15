@@ -8,17 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.android.toppop2.R
-import com.example.android.toppop2.data.repository.Repository
-import com.example.android.toppop2.data.room.getDatabase
 import com.example.android.toppop2.databinding.FragmentDetailsLayoutBinding
 import com.example.android.toppop2.ui.adapters.details.DetailsRecyclerViewAdapter
-import com.example.android.toppop2.ui.chart.ViewModelChart
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class FragmentDetails : Fragment(){

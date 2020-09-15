@@ -16,17 +16,3 @@ abstract class TopPopDatabase: RoomDatabase(){
     abstract val chartDao: ChartDao
     abstract val albumDao: AlbumDao
 }
-
-private lateinit var INSTANCE: TopPopDatabase
-
-fun getDatabase(context: Context): TopPopDatabase{
-    synchronized(TopPopDatabase::class.java) {
-        if (!::INSTANCE.isInitialized) {
-            INSTANCE = Room.databaseBuilder(
-                context.applicationContext,
-                TopPopDatabase::class.java,
-                Const.Database.DB_NAME).build()
-        }
-    }
-    return INSTANCE
-}

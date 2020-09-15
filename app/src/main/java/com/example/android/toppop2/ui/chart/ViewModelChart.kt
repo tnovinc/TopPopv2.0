@@ -13,7 +13,8 @@ class ViewModelChart
     @ViewModelInject
     constructor(
         application: Application,
-        val repository: Repository
+        val repository: Repository,
+        @Assisted private val savedStateHandle: SavedStateHandle
     ): BaseViewModel(application){
 
     private val _itemClicked = MutableLiveData<Int?>()
