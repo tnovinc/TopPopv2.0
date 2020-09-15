@@ -18,6 +18,7 @@ import com.example.android.toppop2.databinding.FragmentDetailsLayoutBinding
 import com.example.android.toppop2.ui.adapters.details.DetailsRecyclerViewAdapter
 import com.example.android.toppop2.ui.chart.ViewModelChart
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class FragmentDetails : Fragment(){
